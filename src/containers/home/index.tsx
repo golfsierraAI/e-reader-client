@@ -29,6 +29,7 @@ const Home = () => {
       return (
         <div key={book.coverURL}>
           <img
+            alt={book.title}
             className={styles.cover}
             width={"300px"}
             height={"480px"}
