@@ -74,15 +74,30 @@ const Reader = ({ loadingView }: Props) => {
 
   const onLocationChange = (loc: string) => {
     if (!viewerRef.current) return;
-    viewerRef.current.setLocation(loc);
+    if (currentLocation.currentPage === 0) {
+      setBookStyle({ ...bookStyle, marginVertical: 16 });
+      setTimeout(() => {
+        viewerRef.current.setLocation(loc);
+      });
+    } else {
+      viewerRef.current.setLocation(loc);
+    }
   };
 
   const onPageMove = (type: "PREV" | "NEXT") => {
     const node = viewerRef.current;
-
     if (!node || !node.prevPage || !node.nextPage) return;
-    type === "PREV" && node.prevPage();
-    type === "NEXT" && node.nextPage();
+
+    if (currentLocation.currentPage === 0) {
+      setBookStyle({ ...bookStyle, marginVertical: 16 });
+      setTimeout(() => {
+        type === "PREV" && node.prevPage();
+        type === "NEXT" && node.nextPage();
+      });
+    } else {
+      type === "PREV" && node.prevPage();
+      type === "NEXT" && node.nextPage();
+    }
   };
 
   const onTocChange = (toc: Toc[]) => dispatch(updateToc(toc));

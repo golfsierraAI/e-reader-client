@@ -25,9 +25,9 @@ const Home = () => {
   };
 
   const renderBooks = () => {
-    return books.map((book) => {
+    return books.map((book, index) => {
       return (
-        <div key={book.coverURL}>
+        <div key={book.coverURL + index}>
           <img
             alt={book.title}
             className={styles.cover}

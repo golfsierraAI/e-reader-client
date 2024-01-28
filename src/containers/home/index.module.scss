@@ -1,6 +1,6 @@
 .root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -20,8 +20,13 @@
   cursor: pointer;
 }
 
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .root {
-    width: 100%;
+@media only screen and (max-device-width: 481px) {
+  .booksWrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .cover {
+    width: 170px;
   }
 }
