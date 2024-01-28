@@ -72,13 +72,6 @@ const Reader = ({ loadingView }: Props) => {
 
   const onBookInfoChange = (book: Book) => dispatch(updateBook(book));
 
-  useEffect(() => {
-    onBookOptionChange({
-      ...bookOption,
-      resizeOnOrientationChange: false,
-    });
-  }, []);
-
   const onLocationChange = (loc: string) => {
     if (!viewerRef.current) return;
     viewerRef.current.setLocation(loc);
