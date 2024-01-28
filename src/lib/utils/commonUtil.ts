@@ -1,3 +1,4 @@
+import { EpubCFI } from "epubjs";
 // types
 import { BookStyle, BookFlow } from "types/book";
 
