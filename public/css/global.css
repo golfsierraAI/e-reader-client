@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap");
+
+html,
+body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+* {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-weight: 400;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-size: 1rem;
+  color: #333;
+}
+
+#root {
+  height: 100%;
+}
+
+.epub-container {
+  overflow-x: hidden !important;
+}
+
+.epub-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.imagesWrapper {
+  display: flex;
+  align-items: flex-start;
+  width: 93vw;
+  margin: auto;
+  overflow: auto;
+}
+.imagesWrapper::-webkit-scrollbar {
+  width: 0px;
+}
+.book img {
+  width: 190px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+.iconsWrapper {
+  position: relative;
+}
+.rightIconButton {
+  position: absolute !important;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.rightIcon {
+  font-size: 30px !important;
+}
+.leftIconButton {
+  position: absolute !important;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.leftIcon {
+  font-size: 30px !important;
+}
+.genreHeading {
+  font-size: 30px;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .imagesWrapper {
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+  .book {
+    align-items: center;
+    justify-content: center;
+  }
+  .rightIconButton,
+  .leftIconButton {
+    display: none !important;
+  }
+
+  img {
+    width: 180px;
+    height: 300px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  iframe {
+    width: 460px;
+    height: 415px;
+  }
+}
