@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Provider } from "react-redux";
 import { ReactEpubViewer } from "react-epub-viewer";
