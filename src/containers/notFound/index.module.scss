@@ -1,0 +1,44 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/constants.scss";
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.root {
+  display: flex;
+  height: calc(100vh - 70px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 5rem;
+    color: $text-color;
+    font-weight: 400;
+    text-align: center;
+    background: linear-gradient(
+      to right,
+      $text-color 20%,
+      #00affa 30%,
+      #0190cd 70%,
+      #805cd6 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 2s ease-in-out infinite alternate;
+    span {
+      font-size: 7rem;
+      display: block;
+    }
+    @include sm {
+      font-size: 2rem;
+    }
+  }
+}

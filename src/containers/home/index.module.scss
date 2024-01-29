@@ -1,18 +1,21 @@
 .root {
-  height: calc(var(--vw, 1vw) * 100);
+  width: calc(var(--vw, 1vw) * 90);
+  margin: auto;
   height: calc(var(--vh, 1vh) * 100);
-  background-attachment: fixed;
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 .booksWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-items: center;
-  gap: 20px;
-  width: calc(var(--vw, 1vw) * 90);
-  margin: auto;
-  margin-top: 50px;
+  row-gap: 30px;
+  margin-bottom: 50px;
 }
 
 .cover {
@@ -21,12 +24,80 @@
 }
 
 @media only screen and (max-device-width: 481px) {
+  .root {
+    width: calc(var(--vw, 1vw) * 100);
+    align-items: center;
+  }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
   .booksWrapper {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    column-gap: 20px;
+    row-gap: 10px;
     align-items: center;
   }
   .cover {
-    width: 170px;
+    width: 160px;
+    row-gap: 30px;
+    justify-items: center;
+  }
+}
+.loadingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loader {
+  width: calc(100px - 14px);
+  height: 50px;
+  border-radius: 50px;
+  background: radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 15px),
+        #ccc calc(100% - 14px) 99%,
+        #0000
+      )
+      left,
+    radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 15px),
+        #ccc calc(100% - 14px) 99%,
+        #0000
+      )
+      right;
+  background-size: calc(50% + 7px) 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  animation: l10-0 1s infinite linear;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f03355;
+  transform-origin: -14px 50%;
+  animation: l10-1 0.5s infinite linear;
+}
+@keyframes l10-0 {
+  0%,
+  49.99% {
+    transform: scaleX(1);
+  }
+  50%,
+  100% {
+    transform: scaleX(-1);
+  }
+}
+@keyframes l10-1 {
+  100% {
+    transform: rotate(1turn);
   }
 }
