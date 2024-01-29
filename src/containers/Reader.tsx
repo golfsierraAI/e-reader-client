@@ -28,14 +28,19 @@ import { ViewerRef } from "types";
 import Book, { BookStyle, BookOption } from "types/book";
 import Page from "types/page";
 import Toc from "types/toc";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const Reader = ({ loadingView }: Props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const bookUrl = useRef(useLocation().state.url);
   const currentLocation = useSelector<RootState, Page>(
     (state) => state.book.currentLocation
   );
+
+  if (!bookUrl) {
+    navigate("/");
+  }
 
   const viewerRef = useRef<ViewerRef | any>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
