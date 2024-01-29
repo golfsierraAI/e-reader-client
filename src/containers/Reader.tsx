@@ -75,7 +75,7 @@ const Reader = ({ loadingView }: Props) => {
   const onLocationChange = (loc: string) => {
     if (!viewerRef.current) return;
     if (currentLocation.currentPage === 0) {
-      setBookStyle({ ...bookStyle, marginVertical: 16 });
+      setBookStyle({ ...bookStyle, marginVertical: 6 });
       setTimeout(() => {
         viewerRef.current.setLocation(loc);
       });
@@ -89,7 +89,7 @@ const Reader = ({ loadingView }: Props) => {
     if (!node || !node.prevPage || !node.nextPage) return;
 
     if (currentLocation.currentPage === 0) {
-      setBookStyle({ ...bookStyle, marginVertical: 16 });
+      setBookStyle({ ...bookStyle, marginVertical: 6 });
       setTimeout(() => {
         type === "PREV" && node.prevPage();
         type === "NEXT" && node.nextPage();
