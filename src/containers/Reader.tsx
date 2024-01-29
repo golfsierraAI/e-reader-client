@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Provider } from "react-redux";
 import { ReactEpubViewer } from "react-epub-viewer";
@@ -33,14 +33,16 @@ import { useLocation, useNavigate } from "react-router";
 const Reader = ({ loadingView }: Props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const bookUrl = useRef(useLocation().state.url);
+  const bookUrl = useRef(useLocation().state?.url);
   const currentLocation = useSelector<RootState, Page>(
     (state) => state.book.currentLocation
   );
 
-  if (!bookUrl) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!bookUrl.current) {
+      navigate("/");
+    }
+  }, [bookUrl.current]);
 
   const viewerRef = useRef<ViewerRef | any>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
