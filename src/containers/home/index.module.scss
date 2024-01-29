@@ -1,6 +1,6 @@
 .root {
-  width: 100vw;
-  height: 100vh;
+  height: calc(var(--vw, 1vw) * 100);
+  height: calc(var(--vh, 1vh) * 100);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -10,7 +10,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   gap: 20px;
-  width: 90%;
+  width: calc(var(--vw, 1vw) * 90);
   margin: auto;
   margin-top: 50px;
 }
